@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CarbonBlade</title>
+    <link rel="stylesheet" href="./carbon.css">
+    <link href='https://fonts.googleapis.com/css?family=Allerta|Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <section id="portada" class="portada background">
+        <header id="header" class="header contenedor"> 
+            <figure class="logo-invertido">
+                <img src="img/logo.png" alt="CarbonBlade Logo">
+            </figure>
+            <span class="icon-menu burguer-button" id="burger-button"></span>
+            <nav class="navbar" id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#rollers">Rollers</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contenedor hero">
+            <h1 class="titulo">Rollers de <span>Carbono</span></h1>
+            <h3 class="subtitulo">Conocerás lo que se siente volar</h3>
+            <a class="button" href="#rollers">Conoce mas</a>
+        </div>
+    </section>
+    <section id="rollers" class="blades contenedor">
+        <h2>Nuestros Rollers</h2>
+        <div class="video-contenedor">
+            <iframe class="video-src" width="560" height="315" src="https://www.youtube.com/embed/qRtV-jnMGvI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <article class="roller">
+            <img class="right" data-src="img/carbon3Morales.png" alt="Carbon 3 Franky Morales" width="350">
+            <div class="contenedor-rollers-a">
+                <h3>Carbon Colors</h3>
+                <ol>
+                    <li>Estilo llamativo</li>
+                    <li>Diseñado por Franky Morales</li>
+                    <li>Incluye ruedas de repuesto</li>
+                </ol>
+            </div>
+        </article>
+        <article class="roller">
+            <img class="left" data-src="img/carbonMathieuLedoux.png" alt="Carbon 3 Mathieu Ledoux" width="350">
+            <div class="contenedor-rollers-b">
+                <h3>Carbon Red</h3>
+                <ol>
+                    <li>Estilo llamativo</li>
+                    <li>Diseñado por Mathieu Ledoux</li>
+                    <li>Incluye ruedas de repuesto</li>
+                </ol>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <div class="contenedor">
+            <div class="contacto">
+                <img class="logo-invertido" src="./img/logo.png" alt="logo">
+                <a href="tel:+573024456678"><strong>Telefono</strong><span>302445678</span></a>
+                <a href="mail:hola@carbonblade.com"><strong>Email</strong><span>hola@carbonblade.com</span></a>            
+            </div>
+            <form class="formulario">
+                <div class="col1">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre"/>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email"/>
+                    <div class="sexo">
+                        <label for="mujer">
+                            <input type="radio" id="mujer" checked name="sexo" value="mujer"> Mujer
+                        </label>
+                        <label for="hombre">
+                            <input type="radio" id="hombre" name="sexo" value="hombre"> Hombre
+                        </label>
+                    </div>
+                    <div class="intereses">
+                        <label for="cotizacion">
+                            <input type="checkbox" checked id="cotizacion" name="intereses" value="cotizacion"> Cotización
+                        </label>
+                        <label for="reclamos">
+                            <input type="checkbox" id="reclamos" name="intereses" value="reclamos"> Reclamos
+                        </label>
+                        <label for="comentarios">
+                            <input type="checkbox" id="comentarios" name="intereses" value="comentarios"> Comentarios
+                        </label>
+                        <label for="otros">
+                            <input type="checkbox" id="otros" name="intereses" value="otros"> Otros
+                        </label>
+                    </div>
+                </div>
+                <div class="col2">
+                    <label for="asunto">Asunto</label>
+                    <textarea name="asunto" id="asunto" cols="30" rows="5"></textarea>
+                    <input type="submit" value="Enviar" class="button">
+                </div>
+            </form>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+    <script>
+        // Lazy Loading
+        var bLazy = new Blazy({
+            selector: 'img'
+        });
+        // media-query
+        var consulta = window.matchMedia('(max-width: 500px)')
+        consulta.addListener(mediaQuery)
+        var $burgerButton = document.getElementById('burger-button');
+        var $navbar = document.getElementById('navbar');
+        function toggleMenu(){
+            $burgerButton.classList.toggle('icon-close')
+            $navbar.classList.toggle('active')
+        }
+
+        function mediaQuery(){
+            if (consulta.matches){
+                $burgerButton.addEventListener('touchstart', toggleMenu)
+                
+            }
+            else{
+                $burgerButton.removeEventListener('touchstart', toggleMenu)
+            }
+        }
+        mediaQuery();
+        
+    </script>
+</body>
+</html>
